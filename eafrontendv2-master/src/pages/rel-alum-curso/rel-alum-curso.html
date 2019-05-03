@@ -1,0 +1,29 @@
+<components-header pageName="Matricula Alumnos"></components-header>
+
+<ion-content padding>
+  <form (ngSubmit)="regRelAlCu()">
+    <div [ngSwitch]="inicioCurso">
+      <div *ngSwitchCase = "'Inicio'">
+        <ion-list>
+          <ion-list-header>Cursos disponibles</ion-list-header>
+          <button ion-item *ngFor="let curso of cursos" (click)="itemSelected(curso)">
+            {{curso.period}}
+          </button>
+        </ion-list>
+      </div>
+
+      <div *ngSwitchCase = "'Fin'">
+        <ion-list>
+          <ion-list-header>Alumnos disponibles</ion-list-header>
+          <ion-item *ngFor="let alumno of alumnos; let i=index">
+            <ion-label>{{alumno.last_name + ', ' + alumno.first_name}}</ion-label>
+            <ion-checkbox [(ngModel)]="checkResp[i]" [ngModelOptions]="{standalone: true}" color="secondary" checked="false"></ion-checkbox>
+          </ion-item>
+        </ion-list>
+        <br>
+        <button ion-button full type="submit" block color="secondary">Registrar</button>
+        <button ion-button full color="danger" (click)="atrasFunc()">Atras</button>
+      </div>
+    </div>
+  </form>
+</ion-content>

@@ -1,0 +1,87 @@
+<ion-header>
+<div *ngIf="show">
+    <ion-toolbar>
+      <h6 style="height: 100%" float-left>{{NombreExamen}}</h6>
+      <timer style="height: 100%" float-right [timeInSeconds]="duracionExamen"></timer>
+    </ion-toolbar>
+</div>
+</ion-header>
+
+
+<ion-content>
+<div *ngIf="show" padding-top>
+  <div padding-top>
+    <div padding-top>
+      <div padding-top>
+
+    <ion-slides speed=500 (ionSlideDidChange)="changePage()" (ionSlideNextStart)="num_diapo = num_diapo + 1" (ionSlidePrevStart)="num_diapo = num_diapo - 1">
+      <ion-slide *ngFor="let pregunta of preguntas">
+        <ion-card>
+          <ion-card-content>
+              <div padding-horizontal>
+                  <div padding text-center>
+                    <div padding text-center>
+                      <h6 style="color:#ffc400">Pregunta Nº {{num_diapo}}</h6>
+                      
+                    </div>
+                    <div>
+                      <ion-item text-center *ngIf = "!!pregunta.statement.pictures[0]">
+                        <img style="width: 300px; height: 300px; margin: 0 auto;" [src]="pregunta.statement.pictures[0]">
+                      </ion-item>            
+                    </div>
+                    <div>
+                      <p style="color:#ffc400" text-justify>{{pregunta.statement.text}}</p>
+                    </div>
+                    <div padding-left>
+                      <ion-list no-lines padding  style="font-weight:bold;font-size:15px;">
+                        <ion-item *ngIf = "!!pregunta.statement.alternatives[0].text">
+                          <ion-label color="primary" text-wrap text-justify>{{pregunta.statement.alternatives[0].text}}</ion-label> 
+                          <ion-checkbox (ionChange)="updateChoice(pregunta.id,'a')"></ion-checkbox>
+                        </ion-item>
+                        <ion-item  *ngIf = "!!pregunta.statement.alternatives[1].text">
+                          <ion-label color="primary" text-wrap text-justify>{{pregunta.statement.alternatives[1].text}}</ion-label>
+                          <ion-checkbox (ionChange)="updateChoice(pregunta.id,'b')"></ion-checkbox>
+                        </ion-item>
+                        <ion-item *ngIf = "!!pregunta.statement.alternatives[2].text">
+                          <ion-label color="primary" text-wrap text-justify>{{pregunta.statement.alternatives[2].text}}</ion-label>
+                          <ion-checkbox (ionChange)="updateChoice(pregunta.id,'c')"></ion-checkbox>
+                        </ion-item>
+                        <ion-item *ngIf = "!!pregunta.statement.alternatives[3].text">
+                          <ion-label color="primary" text-wrap text-justify>{{pregunta.statement.alternatives[3].text}}</ion-label>
+                          <ion-checkbox (ionChange)="updateChoice(pregunta.id,'d')"></ion-checkbox>
+                        </ion-item>
+                        <ion-item *ngIf = "!!pregunta.statement.alternatives[4].text">
+                          <ion-label color="primary" text-wrap text-justify>{{pregunta.statement.alternatives[4].text}}</ion-label>
+                          <ion-checkbox (ionChange)="updateChoice(pregunta.id,'e')"></ion-checkbox>
+                        </ion-item>
+                      </ion-list>
+                    </div>
+                  </div>
+                </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-slide>
+    </ion-slides>
+      </div>
+    </div>
+  </div>
+</div>
+</ion-content>
+
+<ion-footer no-border>
+<div *ngIf="show">
+
+  <ion-toolbar text-center>
+        <button outline ion-button icon-start (click) = "goPrev()" float-left>
+          <ion-icon name="ios-arrow-back"></ion-icon>
+        </button>
+        
+        <button clear ion-button (click)="verResultados()">Terminar Examen</button>
+
+        <button outline ion-button icon-end (click) = "goNext()" float-right>
+          <ion-icon name="ios-arrow-forward"></ion-icon>
+        </button>
+  </ion-toolbar>
+</div>
+
+</ion-footer>

@@ -1,0 +1,45 @@
+<ion-content class="background">
+  <h1>EvaluApp</h1>
+  <ion-card>
+    <ion-card-header>
+      REGISTRARSE
+    </ion-card-header>
+
+    <form (ngSubmit) = "isRegister()" [formGroup]="registerForm">
+      <ion-card-content>
+        <ion-list no-lines>
+          <ion-item>
+            <ion-label floating>Usuario</ion-label>
+            <ion-input type="text" [(ngModel)]="userRegister.username" name="username" formControlName="username" ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Contraseña</ion-label>
+            <ion-input type="password" [(ngModel)]="userRegister.password" name="password" formControlName="password"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Nombres</ion-label>
+            <ion-input type="text" [(ngModel)]="userRegister.nombres" name="nombre" formControlName="nombre"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Apellidos</ion-label>
+            <ion-input type="text" [(ngModel)]="userRegister.apellidos" name="apellido" formControlName="apellido"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Correo Electrónico</ion-label>
+            <ion-input type="email"  [(ngModel)]="userRegister.email" name="email" formControlName="email"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Codigo de registro</ion-label>
+            <ion-input type="text" [(ngModel)]="userRegister.access_code" name="access_code" formControlName="access_code"></ion-input>
+          </ion-item>
+          <ion-item *ngIf="!registerForm.valid && registerForm.dirty">
+            <p>Todos los campos son obligatorios</p>
+          </ion-item>
+          <br>
+          <button ion-button type="submit" block >Registrarse</button>
+          <button ion-button type="button" color="danger"  block  (click)="goLogin()">Atras</button>
+        </ion-list>
+      </ion-card-content>
+    </form>
+  </ion-card> 
+</ion-content>

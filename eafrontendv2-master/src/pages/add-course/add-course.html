@@ -1,0 +1,26 @@
+<components-header pageName="Crear Curso"></components-header>
+
+<ion-content padding>
+    <form (ngSubmit)="regCurso()"><!-- en crear inst curso la fx es regInstCurso()-->
+      <ion-list>
+        <ion-list-header>
+            ASPECTOS GENERALES
+        </ion-list-header>		
+
+  
+        <ion-item>
+          <ion-label>Nombre Curso:</ion-label>
+          <ion-input [(ngModel)]="curso.name" [ngModelOptions]="{standalone: true}" type="text" text-right placeholder="Ej: KM"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>ID Institucion:</ion-label>
+          <ion-input [(ngModel)]="curso.institution_id" [ngModelOptions]="{standalone: true}" type="number" text-right placeholder="Ej: 1"></ion-input>
+        </ion-item>
+		
+      </ion-list>
+      <br>
+      <button ion-button full type="submit" block color="secondary">Crear curso</button>
+    </form>
+  </ion-content>
+  

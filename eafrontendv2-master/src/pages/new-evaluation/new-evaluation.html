@@ -1,0 +1,96 @@
+<components-header pageName="Crear Examen"></components-header>
+
+<ion-content>
+  <form (ngSubmit)="generateEvaluation()" padding>
+    
+      <ion-list>Aspectos generales</ion-list>
+
+      <ion-item>
+        <ion-label color="primary">Nombre: </ion-label>
+        <ion-input type="text" text-right [(ngModel)]="exam_gener.name" [ngModelOptions]="{standalone: true}"></ion-input>
+      </ion-item>
+
+
+      <ion-item>
+        <ion-label color="primary">Curso periodo: </ion-label>
+        <ion-select [(ngModel)]="curso_ident" [ngModelOptions]="{standalone: true}" (ionChange)="enlistarTemas()">
+          <ion-option *ngFor="let curso of curso_disps" [value]="{curso_periodo_id: curso.id, curso_id: curso.course_id}">
+            {{curso.period}}
+          </ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item *ngIf="isVisible">
+        <ion-label color="primary">Tema: </ion-label>
+        <ion-select #select [(ngModel)]="exam_gener.subject" [ngModelOptions]="{standalone: true}">
+          <ion-option *ngFor="let tema_disps of tema_disps" value="{{tema_disps.id}}">
+            {{tema_disps.name}}
+          </ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Fecha de inicio:</ion-label>
+        <ion-datetime displayFormat="DD-MM-YYYY HH:mm:ss" pickerFormat="DD-MM-YYYY HH:mm:ss" [(ngModel)]="fecha_ini" [ngModelOptions]="{standalone: true}"></ion-datetime>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Fecha de fin:</ion-label>
+        <ion-datetime displayFormat="DD-MM-YYYY HH:mm:ss" pickerFormat="DD-MM-YYYY HH:mm:ss" [(ngModel)]="fecha_fin" [ngModelOptions]="{standalone: true}"></ion-datetime>
+      </ion-item>
+
+      <ion-item>
+          <ion-label color="primary"># Preguntas: </ion-label>
+          <ion-input type="number" [(ngModel)]="exam_gener.questions_count" [ngModelOptions]="{standalone: true}" text-right min=1 max=20></ion-input>    
+      </ion-item>
+
+      <ion-item>
+          <ion-label color="primary">Puntos en contra </ion-label>
+          <ion-input type="number" [(ngModel)]="exam_gener.error_points" [ngModelOptions]="{standalone: true}" text-right min=0 max=5 step=0.25></ion-input>
+      </ion-item>
+     
+      <ion-item>
+          <ion-label color="primary">Duracion(min) : </ion-label>
+          <ion-input type="number" [(ngModel)]="duracion_min" [ngModelOptions]="{standalone: true}" text-right min=0></ion-input>
+      </ion-item>
+     
+      <ion-item>
+          <ion-label color="primary"># Intentos: </ion-label>
+          <ion-input type="number" [(ngModel)]="exam_gener.attempts_allowed" [ngModelOptions]="{standalone: true}" text-right min=1 max=3 step=1></ion-input>
+      </ion-item>
+
+      <ion-item>
+          <ion-label>Dificultad</ion-label>
+          <ion-range min="1" max="3" step="1" snaps="true" [(ngModel)]="exam_gener.difficulty_level" [ngModelOptions]="{standalone: true}" color="dark">
+            <ion-icon range-left small name="ios-star-outline"></ion-icon>
+            <ion-icon range-right name="ios-star"></ion-icon>
+          </ion-range>
+      </ion-item>
+
+      <ion-item>
+          <ion-label>Tipo de examen:</ion-label>
+          <ion-select [(ngModel)]="exam_gener.type" [ngModelOptions]="{standalone: true}">
+            <ion-option value=4>Control de lectura</ion-option>
+            <ion-option value=5>Examen parcial</ion-option>
+            <ion-option value=6>Examen final</ion-option>
+            <ion-option value=7>Examen general</ion-option>
+          </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="primary">Codigo de acceso: </ion-label>
+        <ion-input type="text" text-right [(ngModel)]="exam_gener.access_code" [ngModelOptions]="{standalone: true}"></ion-input>
+      </ion-item>
+
+      <ion-item>
+          <ion-label>Codigo requerido</ion-label>
+            <ion-checkbox [(ngModel)]="codReq" [ngModelOptions]="{standalone: true}"></ion-checkbox>
+      </ion-item>
+      <br>
+      <button ion-button full type="submit" block color="secondary" *ngIf=
+      "exam_gener.name!=null || curso_ident!=null || exam_gener.subject!=null || fecha_ini!=null || fecha_fin!=null || 
+      exam_gener.questions_count!=null || exam_gener.error_points!=null || duracion_min!=null ||
+      exam_gener.attempts_allowed!=null || exam_gener.difficulty_level!=null || exam_gener.type!=null" 
+      >Registrar</button>
+  </form>
+</ion-content>

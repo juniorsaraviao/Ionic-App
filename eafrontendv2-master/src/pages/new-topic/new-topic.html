@@ -1,0 +1,27 @@
+<components-header pageName="Crear Tema"></components-header>
+
+<ion-content padding>
+  <form (ngSubmit)="regNewTema()">
+    <ion-list>
+      <ion-list-header>
+        ASPECTOS GENERALES
+      </ion-list-header>
+
+      <ion-item>
+        <ion-label>Nombre del tema:</ion-label>
+        <ion-input [(ngModel)]="tema_curso.name" [ngModelOptions]="{standalone: true}" type="text" text-right></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Cursos: </ion-label>
+        <ion-select [(ngModel)]="tema_curso.course_id" [ngModelOptions]="{standalone: true}">
+          <ion-option *ngFor="let curso of cursos" value="{{curso.id}}">
+                  {{curso.name}}
+          </ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+    <br>
+		<button ion-button full type="submit" block color="secondary">Registrar curso</button>
+  </form>
+</ion-content>

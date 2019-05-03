@@ -1,0 +1,44 @@
+page-register {
+    .background {
+		background-image: url('https://htmlcolorcodes.com/assets/images/html-color-codes-color-tutorials-hero-00e10b1f.jpg')		
+	}
+
+	.card-header{
+		font-size: 2.5rem;
+	}
+
+	.scroll-content{
+		text-align : center;
+	}
+
+	ion-card.card{
+		
+		border-radius: 10px;
+	}
+
+	.item{
+		background: rgba(232,230,230,0px);
+	}
+
+	ion-input{
+		border-bottom : rgb(68, 175, 207) solid 1px;
+	}
+
+	h1{
+		color : #fff;
+		font-size : 3em;
+		font-weight : lighter;
+
+		font-variant: small-caps;
+	}
+
+	.item h2{
+		text-align: center;
+		font-weight: bold;
+		font-variant: small-caps;
+	}
+	
+	.item p{
+		color : red;
+	}
+}

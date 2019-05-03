@@ -1,0 +1,27 @@
+<components-header pageName="Registrar Profesor"></components-header>
+
+  <ion-content padding>
+    <form (ngSubmit)="regProfesor()"><!-- en crear inst curso la fx es regInstCurso()-->
+      <ion-list>
+        <ion-list-header>
+            ASPECTOS GENERALES
+        </ion-list-header>		
+
+  
+        <ion-item>
+          <ion-label>Username:</ion-label>
+          <ion-input [(ngModel)]="profesor.username" [ngModelOptions]="{standalone: true}" type="text" text-right placeholder="Ej: teacher1"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>password:</ion-label>
+          <ion-input [(ngModel)]="profesor.password" [ngModelOptions]="{standalone: true}" type="text" text-right placeholder="Ej: 1234"></ion-input>
+        </ion-item>
+		
+      </ion-list>
+      <br>
+      <button ion-button full type="submit" block color="secondary">Registrar Profesor</button>
+    </form>
+  </ion-content>
+  
+

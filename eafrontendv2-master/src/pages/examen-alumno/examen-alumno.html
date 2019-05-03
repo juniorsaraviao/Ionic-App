@@ -1,0 +1,95 @@
+<components-header pageName="EXÁMENES"></components-header>
+
+<ion-content>
+  <br><br>
+  <div padding>
+      <ion-segment [(ngModel)]="examen">
+        <ion-segment-button value="exam-pendiente">
+          Examenes Pendientes
+        </ion-segment-button>
+        <ion-segment-button value="exam-pasados">
+          Examenes Pasados
+        </ion-segment-button>
+      </ion-segment>
+  </div>
+  <div>
+    <!--ESTE ES LA VISTA DE EXAMENES-->
+    <div [ngSwitch]="examen">
+      <div *ngSwitchCase="'exam-pendiente'">
+        <div [ngSwitch]="estadoLista">
+          <div *ngSwitchCase="'listaExamenes'">
+                  <ion-list>
+                    <button ion-item *ngFor="let exam_pendiente of exam_pendientes" (click)="infoExamen(exam_pendiente)">
+                        <ion-icon name="document"></ion-icon>
+                         {{exam_pendiente.name}}
+                        <ion-icon name="arrow_forward" ></ion-icon>
+                    </button>
+                  </ion-list>
+          </div>
+
+          <div *ngSwitchCase="'infoExamen'">
+              <ion-card >
+                  <ion-card-content>
+                    <ion-card-title id = 'myExam'>
+                        {{detail_exam.name }}
+                    </ion-card-title>
+                    <p>
+                        {{detail_exam.subject }}
+                    </p>
+                    <ion-item>
+                      <ion-icon name="checkbox-outline" item-start large></ion-icon>
+                      <h2>{{detail_exam.correct_points | number: '1.2-2'}} puntos</h2>
+                      <p>Puntaje preguntas correctas</p>
+                    </ion-item>
+                    <ion-item>
+                        <ion-icon name="md-close" item-start large></ion-icon>
+                        <h2>{{detail_exam.error_points | number: '1.2-2'}} puntos</h2>
+                        <p>Puntaje preguntas incorrectas</p>
+                    </ion-item>
+                    <ion-item>
+                        <ion-icon name="md-color-wand" item-start large></ion-icon>
+                        <h2>{{detail_exam.attempts_allowed }} intentos</h2>
+                        <p>Intentos permitidos</p>
+                    </ion-item>
+                    <ion-item>
+                      <ion-icon name="time" item-start large></ion-icon>
+                      <h2>{{getTime(detail_exam.duration_time) }}  minutos</h2>
+                      <p>Duración</p>
+                    </ion-item>
+                    <div *ngIf="detail_exam.state === 21">
+                      <button id="id_examen" block outline ion-button color="primary" (click)="rendirExamen(detail_exam.id,detail_exam.name)">Rendir Examen</button>
+                    </div>
+                    
+                  </ion-card-content>
+              </ion-card>
+          </div>
+        </div>
+      </div>
+            
+      <div *ngSwitchCase="'exam-pasados'">
+          <ion-card *ngFor="let exam_pasado of exam_pasados">
+              <ion-card-content>
+                <ion-card-title id = 'myExam'>
+                    {{exam_pasado.exam.name}}
+                </ion-card-title>
+                <p>
+                    {{exam_pasado.exam.subject }}
+                </p>
+                <ion-item>
+                  <ion-icon name="checkbox-outline" item-start large></ion-icon>
+                  <h2>{{exam_pasado.final_result | number: '1.2-2'}} puntos</h2>
+                  <p>Nota Final</p>
+                </ion-item>
+                <ion-item>
+                    <ion-icon name="md-color-wand" item-start large></ion-icon>
+                    <h2>{{exam_pasado.attempt.attempt_count }} intentos</h2>
+                    <p>Intentos realizados</p>
+                </ion-item>
+              </ion-card-content>
+          </ion-card>
+      </div>
+
+      
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,15 @@
+<components-header pageName="Generar código de registro"></components-header>
+
+<ion-content padding>
+  <form (ngSubmit)="actCodigo()">
+    <ion-label>
+      ASPECTO GENERAL
+    </ion-label>
+    <ion-item>
+      <ion-label color="primary">Codigo de registro: </ion-label>
+      <ion-input type="text" text-right [(ngModel)]="new_cod_access" [ngModelOptions]="{standalone: true}"></ion-input>
+    </ion-item>
+    <br>
+    <button ion-button full type="submit" block color="secondary">Registrar</button>
+  </form>
+</ion-content>

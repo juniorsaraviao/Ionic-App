@@ -1,0 +1,44 @@
+<components-header pageName="Crear Instancia Curso"></components-header>
+
+<ion-content padding>
+	<form (ngSubmit)="regInstCurso()">
+		<ion-list>
+			<ion-list-header>
+				ASPECTOS GENERALES
+			</ion-list-header>		
+			<ion-item>
+				<ion-label>Cursos disponibles:</ion-label>
+				<ion-select [(ngModel)]="curso_periodo.course_id" [ngModelOptions]="{standalone: true}">
+					<ion-option *ngFor="let curso of cursos" value="{{curso.id}}">
+            			{{curso.name}}
+          			</ion-option>
+				</ion-select>
+			</ion-item>
+
+			<ion-item>
+				<ion-label>Periodo:</ion-label>
+				<ion-input [(ngModel)]="curso_periodo.period" [ngModelOptions]="{standalone: true}" type="text" text-right placeholder="Ej: KM-2018-II"></ion-input>
+			</ion-item>
+
+			<ion-item>
+				<ion-label>Fecha de inicio:</ion-label>
+				<ion-datetime [(ngModel)]="curso_periodo.start_date" [ngModelOptions]="{standalone: true}" displayFormat="MMMM DD,YYYY" pickerFormat="DD-MM-YYYY"></ion-datetime>
+			</ion-item>
+
+			<ion-item>
+				<ion-label>Fecha de fin:</ion-label>
+				<ion-datetime [(ngModel)]="curso_periodo.end_date" [ngModelOptions]="{standalone: true}" displayFormat="MMMM DD,YYYY" pickerFormat="DD-MM-YYYY"></ion-datetime>
+			</ion-item>
+
+			<ion-item>
+				<ion-label>Estado del curso:</ion-label>
+				<ion-select [(ngModel)]="curso_periodo.state" [ngModelOptions]="{standalone: true}">
+					<ion-option value=40>Disponible</ion-option>
+					<ion-option value=41>No disponible</ion-option>
+				</ion-select>
+			</ion-item>			
+		</ion-list>
+		<br>
+		<button ion-button full type="submit" block color="secondary">Registrar curso</button>
+	</form>
+</ion-content>

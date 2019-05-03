@@ -1,0 +1,57 @@
+<components-header pageName="Consultar / Actualizar preguntas"></components-header>
+
+<ion-content padding>
+    <form>
+        <div [ngSwitch]="estadoPag">
+          <div *ngSwitchCase="'listEvaluations'">
+            <ion-list>
+              <ion-list-header>
+                Evaluaciones disponibles
+              </ion-list-header>
+              <button ion-item *ngFor="let exam of exams" (click)="itemSelected(exam)">
+                {{exam.name}}
+              </button>
+            </ion-list>
+          </div>
+          
+          <div *ngSwitchCase="'listQuestions'">
+            <ion-list-header>
+              Preguntas Disponibles
+            </ion-list-header>
+            <button ion-item *ngFor="let question of questions" (click)="itemSelectedQuestion(question.question)">
+              {{question.question.name}}
+            </button>
+          </div>
+
+          <div *ngSwitchCase="'detalleQuestion'">
+    
+            <ion-list>
+              <ion-list-header>
+                Detalles de la pregunta
+              </ion-list-header>
+    
+              <ion-item>
+                <ion-label color="primary">Nombre: </ion-label>
+                <ion-input type="text" disabled={{noActualizar}} text-right [(ngModel)]="detail_question.name" [ngModelOptions]="{standalone: true}"></ion-input>
+              </ion-item>
+
+              <ion-item>
+                <ion-label color="primary">Enunciado: </ion-label>
+                <ion-input type="text" disabled={{noActualizar}} text-right [(ngModel)]="detail_question.statement.text" [ngModelOptions]="{standalone: true}"></ion-input>
+              </ion-item>
+    
+            </ion-list>
+    
+            <div *ngIf="!noActualizar" class="wrapper">
+              <button class="button" ion-button full color="secondary" (click)="actualizarData()">Actualizar</button>
+              <button ion-button full color="danger" (click)="atrasFunc()">Atras</button>
+            </div>
+            <div *ngIf="noActualizar" class="wrapper">
+              <button class="button" ion-button full color="secondary" (click)="doConfirm()">Actualizar evaluacion</button>
+              <button ion-button full color="danger" (click)="atrasFunc()">Atras</button>
+            </div>	
+            
+          </div>
+        </div>
+      </form>
+</ion-content>

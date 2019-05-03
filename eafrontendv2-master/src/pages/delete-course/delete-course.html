@@ -1,0 +1,23 @@
+<components-header pageName="Eliminar Curso"></components-header>
+
+  <ion-content padding>
+    <form (ngSubmit)="elimCurso()">
+      <ion-list>
+        <ion-list-header>
+          ASPECTOS GENERALES
+        </ion-list-header>		
+        <ion-item>
+          <ion-label>Cursos disponibles:</ion-label>
+          <ion-select [(ngModel)]="cursoToBeDelete.id" [ngModelOptions]="{standalone: true}">
+            <ion-option *ngFor="let curso of cursos" value="{{curso.id}}">
+                    {{curso.name}}
+                  </ion-option>
+          </ion-select>
+        </ion-item>
+  
+        </ion-list>
+      <br>
+      <button ion-button full type="submit" block color="secondary">Eliminar curso</button>
+    </form>
+  </ion-content>
+  

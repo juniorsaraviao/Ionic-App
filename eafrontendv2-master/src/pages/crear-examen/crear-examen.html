@@ -1,0 +1,107 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title text-center>Generar examen</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<!--
+<ion-content>
+	<ion-list>
+    	<ion-list-header>
+			Aspectos generales
+		</ion-list-header>
+
+		<ion-item>
+			<ion-label color="primary">Nombre: </ion-label>
+			<ion-input type="text" text-right [(ngModel)]="exam_gener.name"></ion-input>
+		</ion-item>
+
+    	<ion-item>
+      		<ion-label color="primary">Curso: </ion-label>
+      		<ion-select id="cursoSelected" [(ngModel)]="exam_gener.course_id" (ionChange)="enlistarTemas('cursoSelected')">
+        		<ion-option *ngFor="let curso_disp of curso_disps" value="{{curso_disp.id}}">
+          			{{curso_disp.name}}
+        		</ion-option>
+      		</ion-select>
+    	</ion-item>
+
+      <ion-item>
+          <ion-label color="primary">Tema: </ion-label>
+          <ion-select id="temaSelected">
+            <ion-option *ngFor="let tema_disp of tema_disps" value="{{tema_disp.id}}">
+              value="{{tema_disp.name}}"
+            </ion-option>
+          </ion-select>
+    </ion-item>
+
+    	<ion-item>
+      		<ion-label color="primary">Fecha Inicio:</ion-label>
+      		<ion-datetime displayFormat="DD-MMM-YY, hh:mm a"></ion-datetime>
+		</ion-item>
+
+    	<ion-item>
+      		<ion-label color="primary">Fecha Fin:</ion-label>
+      		<ion-datetime displayFormat="DD-MMM-YY, hh:mm a"></ion-datetime>
+		</ion-item>
+
+      <ion-item>
+          <ion-label color="primary"># Preguntas: </ion-label>
+          <ion-input type="number" text-right [(ngModel)]="" min=1 max=10></ion-input>    
+      </ion-item>
+
+      <ion-item>
+          <ion-label color="primary">Puntos a favor </ion-label>
+          <ion-input type="number" text-right min=0 max=5 step=0.5></ion-input>
+      </ion-item> 
+      <ion-item>
+          <ion-label color="primary">Puntos en contra </ion-label>
+          <ion-input type="number" text-right min=-2 max=0 step=0.5></ion-input>
+      </ion-item>
+
+      <ion-item>
+          <ion-label color="primary">Duracion: </ion-label>
+          <ion-datetime displayFormat="mm:ss"></ion-datetime>
+      </ion-item>
+
+      <ion-item>
+          <ion-label color="primary"># Intentos: </ion-label>
+          <ion-input type="number" text-right min=1 max=3 step=1></ion-input>
+      </ion-item>
+	</ion-list>
+  <br>
+  <ion-list>
+      <ion-list-header>
+          Preguntas
+      </ion-list-header>
+      <ion-item>
+          <ion-select placeholder="Pregunta 1" class="mySelect">
+            <ion-option>Soy una pregunta 1?</ion-option>
+            <ion-option>Soy una pregunta 2?</ion-option>
+            <ion-option>Soy una pregunta 3?</ion-option>
+            <ion-option>Soy una pregunta 4?</ion-option>
+            <ion-option>Soy una pregunta 5?</ion-option>
+          </ion-select>
+      </ion-item>
+      <ion-item>
+          <ion-select placeholder="Pregunta 2" class="mySelect">
+            <ion-option>Soy una pregunta 1?</ion-option>
+            <ion-option>Soy una pregunta 2?</ion-option>
+            <ion-option>Soy una pregunta 3?</ion-option>
+            <ion-option>Soy una pregunta 4?</ion-option>
+            <ion-option>Soy una pregunta 5?</ion-option>
+          </ion-select>
+      </ion-item>
+      <ion-item>
+          <ion-select placeholder="Pregunta 3" class="mySelect">
+            <ion-option>Soy una pregunta 1?</ion-option>
+            <ion-option>Soy una pregunta 2?</ion-option>
+            <ion-option>Soy una pregunta 3?</ion-option>
+            <ion-option>Soy una pregunta 4?</ion-option>
+            <ion-option>Soy una pregunta 5?</ion-option>
+          </ion-select>
+      </ion-item>
+  </ion-list>
+  <button ion-button full color="secondary">Registrar</button>
+  <button ion-button full color="danger">Cancelar</button>
+  <br>
+</ion-content>-->

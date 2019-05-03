@@ -1,0 +1,76 @@
+<ion-menu id="MenuStudent" [content]="content">
+  	<ion-header>
+		<ion-toolbar>
+	        <ion-title>Menu</ion-title>
+		</ion-toolbar>
+	</ion-header>
+	<ion-content>
+		<ion-list>
+			<!--
+		    <button ion-item (click)="openPagePerfil()">
+		       Perfil
+	        </button>-->
+	        <button ion-item (click)="openPageExEstudiante()">
+       	       Examenes
+		    </button>
+		    <button ion-item (click)="logout()">
+		        Salir
+		      </button>
+		    </ion-list>
+		</ion-content>
+</ion-menu>
+
+<ion-menu id="MenuTeacher" [content]="content">
+  	<ion-header>
+		<ion-toolbar>
+	        <ion-title>Menu</ion-title>
+		</ion-toolbar>
+	</ion-header>
+	<ion-content>
+		<ion-list>
+			<button ion-item (click)="openPageProf9()">
+						Crear Curso
+			</button>
+			<button ion-item (click)="openPageProf10()">
+					Eliminar Curso
+			</button>
+		    <button ion-item (click)="openPageProf1()">
+		       Crear curso seccion
+	        </button>
+	        <button ion-item (click)="openPageProf2()">
+       	       Crear tema
+		    </button>
+		    <button ion-item (click)="openPageProf3()">
+		       Crear examen
+		    </button>
+		    <button ion-item (click)="openPageProf4()">
+		       Crear pregunta
+			</button>
+		    <button ion-item (click)="openPageProf5()">
+				Matricular alumnos
+			</button>
+			<button ion-item (click)="openPageProf6()">
+				Ver notas
+			</button>
+			<button ion-item (click)="openPageProf7()">
+				Generar codigo de registro
+			</button>
+			<button ion-item (click)="openPageProf8()">
+				Consultar / Actualizar evaluacion
+			</button>
+			<button ion-item (click)="openPageProf12()">
+				Consultar / Actualizar Pregunta
+			</button>
+			
+			<button ion-item (click)="openPageProf11()">
+				Registrar Profesor
+			</button>
+
+		    <button ion-item (click)="logOut2()">
+		        Salir
+		     </button>
+		</ion-list>
+    </ion-content>
+</ion-menu>
+
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

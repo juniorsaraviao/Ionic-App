@@ -1,0 +1,106 @@
+<ion-header>
+  	<ion-navbar color="primary">
+  		<button ion-button menuToggle>
+      		<ion-icon name="menu"></ion-icon>
+    	</button>
+    	<ion-title text-center>
+    		Examenes
+    	</ion-title>
+  	</ion-navbar>
+	<ion-toolbar no-border-top >
+		<ion-segment [(ngModel)]="tempExam">
+			<ion-segment-button value="Programados">
+				Programados
+			</ion-segment-button>
+			<ion-segment-button value="Pasados">
+				Pasados
+			</ion-segment-button>
+		</ion-segment>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+	<div [ngSwitch]="tempExam">
+		<ion-list *ngSwitchCase="'Programados'">
+			<ion-list-header color="danger">
+				Administracion del Conocimiento
+			</ion-list-header>
+			<ion-item>
+				<h3>
+					Tema:            <p text-right> Gestion del Conocimiento </p>
+				</h3>
+				<h4>
+					Fecha de Inicio: <p text-right> 17-06-2018 </p>
+				</h4>
+				<h4>
+					Fecha de Fin   : <p text-right> 17-06-2018 </p>
+				</h4>
+				<div class="wrapper">
+					<button class="button" ion-button color="primary" outline>
+						Detalle
+					</button>
+					<button class="button" ion-button color="secondary" outline>
+						Modificar
+					</button>
+				</div>
+			</ion-item>
+			<ion-item>
+				<h3>
+					Tema:            <p text-right> La Producción del Conocimiento </p>
+				</h3>
+				<h4>
+					Fecha de Inicio: <p text-right> 20-06-2018 </p>
+				</h4>
+				<h4>
+					Fecha de Fin   : <p text-right> 25-06-2018 </p>
+				</h4>
+				<div class="wrapper">
+					<button class="button" ion-button color="primary" outline>
+						Detalle
+					</button>
+					<button class="button" ion-button color="secondary" outline>
+						Modificar
+					</button>
+				</div>
+			</ion-item>
+		</ion-list>
+		
+		<ion-list *ngSwitchCase="'Pasados'">
+			<ion-list-header color="danger">
+				Administracion del Conocimiento
+			</ion-list-header>
+			<ion-item>
+				<h3>
+					Tema:            <p text-right> Gestión del Conocimiento e Innovación </p>
+				</h3>
+				<h4>
+					Fecha de Inicio: <p text-right> 01-05-2018 </p>
+				</h4>
+				<h4>
+					Fecha de Fin   : <p text-right> 02-05-2018 </p>
+				</h4>
+				<div class="wrapper">
+					<button class="button" ion-button color="primary" outline>
+						Detalle
+					</button>
+				</div>
+			</ion-item>
+			<ion-item>
+				<h3>
+					Tema:            <p text-right> La Red y la Gestión del Conocimiento </p>
+				</h3>
+				<h4>
+					Fecha de Inicio: <p text-right> 07-05-2018 </p>
+				</h4>
+				<h4>
+					Fecha de Fin   : <p text-right> 14-05-2018 </p>
+				</h4>
+				<div class="wrapper">
+					<button class="button" ion-button color="primary" outline>
+						Detalle
+					</button>
+				</div>
+			</ion-item>
+		</ion-list>
+	</div>
+</ion-content>

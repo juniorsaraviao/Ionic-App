@@ -1,0 +1,39 @@
+<ion-content class="background">
+  <h1>EvaluApp</h1>
+  <ion-card>
+    <ion-card-header>
+      LOGIN
+      
+    </ion-card-header>
+    <img class="center" src="https://i0.wp.com/fieecs.uni.edu.pe/wp-content/uploads/2018/08/cropped-logo-UNI-copia.png"  style="width:100px;height:120px;">
+    <form (ngSubmit)="isLogin()" [formGroup]="loginForm">
+      <ion-card-content>
+        <ion-list no-lines>
+          <ion-item>
+            <ion-label>Rol</ion-label>
+              <ion-select [(ngModel)]="user.rol" formControlName="rol" >
+                <ion-option value="admin">Administrador/Profesor</ion-option>
+                <ion-option value="student">Estudiante</ion-option>
+              </ion-select>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Usuario</ion-label>
+            <ion-input type="text" [(ngModel)]="user.username" name="username" formControlName="username" ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Contraseña</ion-label>
+            <ion-input type="password" [(ngModel)]="user.password" name="password" formControlName="password" ></ion-input>
+          </ion-item>
+          <ion-item *ngIf="!loginForm.valid && loginForm.dirty">
+            <p>Ingrese correctamente todos los campos</p>
+          </ion-item>
+          <ion-item>
+            <h2 (click)="goReset()">¿Olvidaste tu Contraseña?</h2>
+          </ion-item>
+          <button ion-button type="submit" color="primary" block >Ingresar</button>
+          <button ion-button type="button" color="danger" block  (click)="goRegister()">Registrate</button>
+        </ion-list>
+      </ion-card-content>
+    </form>
+  </ion-card>
+</ion-content>

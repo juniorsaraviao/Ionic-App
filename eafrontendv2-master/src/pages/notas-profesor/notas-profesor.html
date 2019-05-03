@@ -1,0 +1,54 @@
+<components-header pageName="Ver Notas"></components-header>
+
+<ion-content padding>
+  <form>
+    <div [ngSwitch]="estadoPag">
+      <div *ngSwitchCase="'Exam'">
+          <ion-list>
+            <ion-list-header>
+              Examenes disponibles
+            </ion-list-header>
+            <button ion-item *ngFor="let exam of exams" (click)="itemSelected(exam)">
+              {{exam.name}}
+            </button>
+          </ion-list>
+      </div>
+
+      <div *ngSwitchCase="'Notas'">
+        <ion-list>
+          <ion-list-header>
+             Notas
+          </ion-list-header>
+          <ion-grid>
+            <ion-item *ngFor="let nota of notas">
+              <ion-row>
+                <ion-col col-4>Estudiante: </ion-col>
+                <ion-col text-right col-8>
+                  {{nota.student.last_name}}
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col col-4>Intentos: </ion-col>
+                <ion-col text-right col-8> 
+                  <ion-badge>
+                      {{nota.attempt.attempt_count}}
+                  </ion-badge>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col col-4>Nota final: </ion-col>
+                <ion-col text-right col-8>
+                  <ion-badge [color]="nota.final_result >= 10 ? 'secondary' : 'danger'">
+                    {{nota.final_result}}
+                  </ion-badge>
+                </ion-col>
+              </ion-row>
+            </ion-item>
+          </ion-grid>  
+        </ion-list>
+        <br>
+        <button ion-button full color="danger" (click)="atrasFunc()">Atras</button>
+      </div>
+    </div>
+  </form>
+</ion-content>
